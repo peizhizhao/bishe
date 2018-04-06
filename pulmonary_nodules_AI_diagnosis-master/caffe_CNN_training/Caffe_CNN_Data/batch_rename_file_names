@@ -1,0 +1,65 @@
+#! /bin/sh
+
+
+mkdir Dev
+
+cp images_*_*_0.jpg Dev/
+
+cd Dev/
+
+rename 's/\_0.jpg/\.jpg/' *
+
+
+
+cd /media/ucla/32CC72BACC727845/tianchi
+
+
+rename 's/train_/my_train_/' *
+
+mv my_train_subset00/train_subset00/ .
+
+
+rename 's/val_/my_val_/' *
+
+mv my_val_subset00/val_subset00/ .
+
+
+rename 's/test_/my_test_/' *
+
+mv my_test_subset00/test_subset00/ .
+
+
+########################################## pulmonary-nodules-segmentation ##########################################
+cat csv/train/annotations.csv csv/val/annotations.csv > csv/train_all/annotations.csv
+
+
+# u-net train dataset
+cp train_subset00/* train_subset_all/
+cp train_subset01/* train_subset_all/
+cp train_subset02/* train_subset_all/
+cp train_subset03/* train_subset_all/
+cp train_subset04/* train_subset_all/
+cp train_subset05/* train_subset_all/
+cp train_subset06/* train_subset_all/
+cp train_subset07/* train_subset_all/
+cp train_subset08/* train_subset_all/
+cp train_subset09/* train_subset_all/
+cp train_subset10/* train_subset_all/
+cp train_subset11/* train_subset_all/
+cp train_subset12/* train_subset_all/
+cp train_subset13/* train_subset_all/
+cp train_subset14/* train_subset_all/
+
+cp val_subset00/* train_subset_all/
+cp val_subset01/* train_subset_all/
+cp val_subset02/* train_subset_all/
+cp val_subset03/* train_subset_all/
+cp val_subset04/* train_subset_all/
+
+
+# u-net val dataset
+cp val_subset00/* val_subset_all/
+cp val_subset01/* val_subset_all/
+cp val_subset02/* val_subset_all/
+cp val_subset03/* val_subset_all/
+cp val_subset04/* val_subset_all/
